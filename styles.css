@@ -436,7 +436,7 @@ header h1 .optional {
 .more button {
   position: absolute;
   left: -28px;
-  top: -28px;
+  top: -58px;
   background: white;
 }
 
@@ -1024,6 +1024,10 @@ footer .links a:hover {
   width: 100%;
 }
 
+.invisible{
+  visibility: hidden;
+}
+
 /* Confusion Matrix */
 .cm-data label {
   display: inline-block;
@@ -1034,13 +1038,17 @@ footer .links a:hover {
 }
 
 /* Links */
-#article-text-md {
+#article-text-md,
+#article-text {
   position: relative;
+  min-height: 20em;
 }
 .l--nav-scroll {
   padding: 0 1em;
   position: absolute;
   top: 62px;
+  left: 1em;
+  max-width: 300px;
 }
 .fixed.l--nav-scroll {
   position: fixed;
@@ -1051,4 +1059,81 @@ footer .links a:hover {
 .l--nav-scroll a {
   text-decoration: none;
   color: #1a1a1a;
+}
+.l--nav-scroll > ul ul {
+  display: block;
+  position: relative;
+}
+
+.l--nav-scroll > ul > li.mdl-list__item.sub-menu {
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  padding-left: 1.25em;
+}
+.l--nav-scroll > ul > li.mdl-list__item.sub-menu::after{
+  class: "material-icons";
+  color: #999;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  position: absolute;
+  left: -5px;
+  top: 12px;
+  pointer-events: none;
+}
+.l--nav-scroll > ul > li.mdl-list__item.sub-menu:not(.closed)::after{
+  content: "expand_less";
+}
+.l--nav-scroll > ul > li.mdl-list__item.sub-menu.closed::after{
+  content: "chevron_right";
+}
+.l--nav-scroll > ul > li.mdl-list__item.sub-menu.closed ul {
+  display: none;
+}
+
+.l--nav-scroll > ul > li.mdl-list__item.sub-menu ul {
+  margin-top: 1em;
+  padding: 0 1em;
+}
+
+.l--nav-scroll > ul > li.mdl-list__item.sub-menu ul li {
+  /*
+  font-size: 14px;
+  min-height: 32px;
+  padding: 0;
+  */
+}
+
+/* Article Sections */
+#article-text-md .l--body :first-child { 
+  cursor: pointer;
+}
+#article-text-md .l--body.close :not(:first-child) {
+  display: none;
+}
+#article-text-md .l--body.close :first-child {
+  -webkit-box-shadow: 0 6px 4px -4px rgba(0,0,0,0.08);;
+  -moz-box-shadow: 0 6px 4px -4px rgba(0,0,0,0.08);;
+  box-shadow: 0 6px 4px -4px rgba(0,0,0,0.08);
+}
+#article-text-md .l--body[parent-id*='section'] h3:first-child {
+  font-style: italic;
+}
+#btn-take-tour{
+  position: absolute;
+  left: 2em;
+  top: 75px;
+}
+#btn-take-tour.fixed {
+  top: 1.5em;
+  position: fixed;
 }
